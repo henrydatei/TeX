@@ -1,0 +1,76 @@
+\documentclass[a4paper, 11pt, chapterprefix, ngerman]{scrreprt}
+\KOMAoptions{%
+	parskip=half,%
+	fontsize=11pt}
+
+%=== PACKAGES ===================================================
+\input{../tex_packages}
+
+%================================================================
+%=== SETTINGS ===================================================
+%================================================================
+
+% |--------------------------|
+% | Farben                   |
+% |--------------------------|
+\definecolor{lightgrey}{gray}{0.89}
+\definecolor{darkgrey}{gray}{0.6}
+
+\definecolor{blue}{rgb}{50,85,150}
+\definecolor{lightred}{rgb}{1,0.6,0.6}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+
+% |--------------------------|
+% | Zähler                   |
+% |--------------------------|
+\newcounter{themcount}
+\newcounter{defcount}
+%\renewcommand{\thethemcount}{\relax}
+
+\numberwithin{themcount}{section}
+\counterwithout{section}{chapter}
+
+% |--------------------------|
+% | Mathematik               |
+% |--------------------------|
+\input{../tex_math}
+\input{../tex_theoreme}
+
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01}
+
+% |--------------------------|
+% | neue Befehle             |
+% |--------------------------|
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+\renewcommand*{\theequation}{\arabic{equation}}
+\renewcommand{\labelitemi}{$\vartriangleright$}
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+%$\blacktriangleright \vartriangleright \triangleright$ hier steht ein text
+
+%Aufzählungszeichen für Formel in der gleichen Zeile
+\def\Item{\item~\vspace{-1\normalbaselineskip}}
+
+\begin{document}
+
+\setlength\abovedisplayshortskip{3pt}
+\setlength\belowdisplayshortskip{3pt}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+
+\title{Geometrie}
+\author{Eric Kunze}
+\date{\today}
+\maketitle[0]
+
+\chapter{Endliche Gruppen}
+
+\input{geo_1_erinnerung-beispiele}
+\input{geo_2_ordnung-index}
+\input{geo_3_normalteiler-quotientengruppe}
+\input{geo_4_abelsche-gruppen}
+\input{geo_5_produkte}
+
+\end{document}
+

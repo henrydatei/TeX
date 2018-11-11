@@ -1,0 +1,95 @@
+\begin{defin}[Zyklische Gruppen der Ordnung n]
+	$Z_n := \erz{a \mid a^n = e} = \{a^0,a^1, \dots a^{n-1}\}$
+\end{defin}
+\begin{lemma}
+	$Z_n$ ist isomorph zu $\rest{n}$, d.h. es existiert ein Isomorphismus $f: \rest{n} \to Z_n, i \mapsto a^i$.
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item $f$ ist bijektiv: Es genügt zu zeigen, dass $f$ injektiv ist. \\
+		\begin{align*}
+		f(a^i) = f(a^j) \follows i + n\integer = j +n\integer \overset{i,j \in \rest{n}}{\follows} i=j \follows f \text{ bijektiv}
+		\end{align*}
+		\item $f(i+j) = f(i) + f(j) \forall i,j \in \rest{n}$ \\
+		\begin{align*}
+		f(i+j) = a^{i+j} = a^i * a^j = f(i) * f(j)
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+
+\begin{bem}[Eigenschaften von $Z_n$]
+	\begin{itemize}
+		\item $Z_n$ ist abelsch.
+		\item Zu jedem Teiler $t$ von $n$ gibt es genau eine Untergruppe der Ordung $t$, nämlich $\erz{a^{\frac{n}{t}}}$.
+		\item Untergruppen von zyklischen Gruppen sind wieder zyklisch.
+	\end{itemize}
+\end{bem}
+
+\begin{lemma}
+	Sei $(G,\circ)$ eine zyklische Gruppe der Ordnung $n$ mit $G=\erz{n}$. Sei weiter $U$ eine Untergruppe von $G$. Dann ist $U$ zyklisch, d.h. es gibt ein Element $a^k$ mit $U=\erz{a^k}$.
+\end{lemma}
+\begin{proof} Wir zerlegen die Behauptung in zwei Fälle.
+	\begin{enumerate}
+		\item Ist $\# U = 1$, d.h. $U=\{e=a^0\}$ ist zyklisch.
+		\item Sei $\# U > 1$. Somit enthält $U$ ein Element $a^i$ mit $i>0, i$ minimal. Wir zeigen, dass $U=\erz{a^i}$. \\
+		Sei $a^j \in U$ beliebig. Dann gilt $a^j \in \erz{a^i}$, denn: \\
+		Es gibt $q,r \in \nat$ mit $j = q*i + r$ und $0 \leq r < i$. Dann ist $a^j = a^{q*i + r} = (a^i)^q * a^r$ mit $a^i, a^j \in U$ und somit auch $(a^i)^q \in U$ sowie schlussendlich auch $a^r \in U$. Da $i$ minimal ist, folgt $r=0$ und dann $a^r=e$, sodass $a^j = (a^i)^q * e = (a^i)^q \in \erz{a^i}$
+	\end{enumerate}
+\end{proof}
+
+\begin{defin}
+	Seien $(G_1,\circ_1), (G_2, \circ_2)$ Gruppen und $g_1, g_1' \in G_1$ und $g_2 , g_2' \in G_2$. Durch 
+	\begin{align*}
+	(g_1,g_2) \circ (g_1',g_2') = (g_1 \circ_1 g_1' , g_2 \circ_2 g_2')
+	\end{align*}
+	wird eine Operation in $G_1 \times G_2$ erklärt. Man nennt $(G_1 \times G_2 , \circ)$ das direkte Produkt der Gruppen $G_1$ und $G_2$.
+\end{defin}
+\begin{bem}
+	Offensichtlich ist $(G_1 \times G_2 , \circ)$ eine Gruppe.
+\end{bem}
+%
+\begin{satz}
+	$(G_1, \circ_1), (G_2 , \circ_2)$ seien Gruppen.
+	\begin{enumerate}
+		\item $G_1 \times G_2 \isomorph G_2 \times G_1$
+		\item Sind $G_1$ und $G_2$ abelsch, so ist auch $G_1 \times G_2$ abelsch.
+		\item Ist $G_1 \times G_2$ zyklisch, so sind auch $G_1$ und $G_2$ zyklisch.
+	\end{enumerate}
+\end{satz}
+
+\begin{bsp}
+	$\rest{2} \times \rest{2} \neq \rest{4}$ \\
+	$\rest{2} \times \rest{3} \isomorph \rest{6}$, denn $\erz{(1,1)} = \{ (1,1) , (0,2) , (1,0) , (0,1) ,(1,2) , (0,0) \}$.
+\end{bsp}
+
+\begin{satz}
+	Die Gruppe $\rest{n} \times \rest{m}$ ist genau dann zyklisch, wenn $\ggT(n,m) = 1$.
+\end{satz}
+\begin{proof}
+	$\ggT(n,m)=1 \follows \rest{n} \times \rest{m} = \rest{n*m} = \erz{(1,1)}$ \\
+	Sei $\ggT(n,m) = d > 1$ und $(a,b) \in \rest{n} \times \rest{m}$. Dann ist $\ord(a,b) = \# \erz{(a,b)} < n*m = \# \rest(n) \times \rest{m}$. \\
+	Sei nun $n=n' * d$ und $m=m' * d$. Dann ist
+	\begin{align*}
+	\underbrace{(a,b) + \cdots (a,b)}_{n'*m'*d < n*m \text{ Summanden}} = (0,0)
+	\end{align*}
+\end{proof}
+
+\begin{thm}[Basissatz für endliche abelsche Gruppen]
+	Jede endliche abelsche Gruppe ist isomorph zu einem direkten Produkt zyklischer Gruppen von Primzahlpotenzordnung
+	\begin{align*}
+	Z_{m_1} \times Z_{m_2} \times \cdots \times Z_{m_k} \quad \text{mit } m_1 \teilt m_2, m_2 \teilt m_3 , \dots , m_{k-1} \teilt m_k
+	\end{align*}
+	Diese Darstellung ist eindeutig bis auf die Reihenfolge der Faktoren im direkten Produkt.
+\end{thm}
+\begin{bsp}
+	Suche alle abelschen Gruppen der Ordnung 8.\\
+	$8=2^3=2^1*2^1*2^1$ \\
+	$Z_8 = Z_{2^3}$ \\
+	$Z_{2^2} \times Z_{2^1} = Z_4 \times Z_2$ \\
+	$Z_{2^1} \times Z_{2^1} \times Z_{2^1} = Z_2 \times Z_2 \times Z_2$\\
+	$\follows$ Es gibt bis auf Isomorphie genau 3 abelsche Gruppen der Ordnung 8.
+\end{bsp}
+\begin{bsp}
+	Alle abelschen Gruppen der Ordnung 360 enthalten ein Element der Ordnung 30. \\
+	$360 = 2^3 * 3^2 * 5$
+\end{bsp}

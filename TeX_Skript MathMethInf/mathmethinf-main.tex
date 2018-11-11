@@ -1,0 +1,85 @@
+\documentclass[a4paper, 11pt, chapterprefix]{scrreprt}
+
+
+\KOMAoptions{%
+	parskip=half,%
+	fontsize=11pt}
+
+%=== PACKAGES ===============================================================
+\input{../tex_packages}
+
+%============================================================================
+%=== SETTINGS AND NEW DEFINITIONS ===========================================
+%============================================================================
+
+% |--------------------------|
+% | Farben                   |
+% |--------------------------|
+\definecolor{lightgrey}{gray}{0.89}
+\definecolor{darkgrey}{gray}{0.6}
+
+\definecolor{blue}{rgb}{50,85,150}
+\definecolor{lightred}{rgb}{1,0.6,0.6}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+
+% |--------------------------|
+% | Zähler                   |
+% |--------------------------|
+\newcounter{themcount}
+\newcounter{defcount}
+%\renewcommand{\thethemcount}{\relax}
+
+\numberwithin{themcount}{section}
+\counterwithout{section}{chapter}
+
+% |--------------------------|
+% | Theoreme                 |
+% |--------------------------|
+\input{../tex_theoreme}
+
+% |--------------------------|
+% | Kapitelüberschriften     |
+% |--------------------------|
+\renewcommand{\thechapter}{\Roman{chapter}}
+%\usepackage{titlesec}
+%\titleformat{\chapter}{\Large}{\texttt{\thechapter .~ \chaptertitlename}}{1em}{}{}
+%\renewcommand{\chapterformat}{\Large}
+%
+%\usepackage{mwe}
+%\renewcommand{\chapterlineswithprefixformat}[3]{%
+%  #2 \nobreak
+%  #3 \nobreak
+%  \rule{\textwidth}{1pt}%
+%}
+
+% |--------------------------|
+% | neue Befehle             |
+% |--------------------------|
+\input{../tex_math}
+
+
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01}
+
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+\renewcommand*{\theequation}{\arabic{equation}}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+
+\begin{document}
+
+\setlength\abovedisplayshortskip{3pt}
+\setlength\belowdisplayshortskip{3pt}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+
+\section{Zyklische Gruppen}
+\input{mathmethinf-1}
+
+\newpage
+\section{Ringe}
+\input{mathmethinf-2}
+
+\end{document}
+

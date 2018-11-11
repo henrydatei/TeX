@@ -1,0 +1,102 @@
+\begin{defin}
+	Sei $R \neq \emptyset$. $(R, + , *)$ heißt \begriff{Ring}, falls gilt:
+	\begin{enumerate}
+		\item $(R,+)$ ist eine abelsche Gruppe.
+		\item $R,*)$ ist eine Halbgruppe.
+		\item Distributivgesetze: $a*(b+c) = (a*b)+(a*c)$ und $(b+c)*a = (b*a) + (c*a)$ für alle $a,b,c \in R$.
+		\item Gilt zusätzlich \\
+		$a*b = b*a$ für alle $a,b \in R$, \\
+		dann wird $(R+,*)$ kommutativer Ring genannt.
+	\end{enumerate}
+\end{defin}
+%
+\begin{defin}
+	Sei $(R,+,*)$ ein Ring und $U \subseteq R$. $U$ heißt \begriff{Unterring} von $(R,+,*)$, wenn gilt:
+	\begin{enumerate}
+		\item $U \neq \emptyset$ ($0_R \in U$)
+		\item $a,b, \in U \follows a+b \in U$ für alle $a,b \in U$ (Abgschlossenheit unter Addition)
+		\item $a \in U \follows -a \in U$ für alle $a \in U$ (Abgeschlossenheit unter additiven Inversen)
+	\end{enumerate}
+\end{defin}
+%
+\begin{bsp}
+	$\integer \subseteq \mathbb{Q} \subseteq \real \subseteq \complex$ sind kommutative Ringe. \\
+	$\real^{n \times n}$, der Matrizenring (über $\real$) \\
+	$\rest{n}$, der Restklassenring modulo $n$ \\
+	$2\integer = \menge{2*z : z \in \integer}$ ist ein Unterring von $\integer$
+	$\menge{a+bi : a,b \in \integer}$ ist Unterring von $\complex$
+\end{bsp}
+%
+\begin{bem}
+	Allgemein gilt:
+	\begin{align*}
+		a * (b_1 + \cdots + b_n) = a*b_1 + \cdots + a*b_n
+	\end{align*}
+	für alle $a,b_i \in R$.
+\end{bem}
+\begin{proof}
+	Zeige die Aussage mittels vollständiger Induktion über $n$.
+\end{proof}
+%
+\begin{bem}
+	Addition ist in jedem Ring kommutativ. \\
+	"Punktrechnung vor Strichrechnung." \\
+	Inverse Elemente in Ringen existieren immer bzgl. der Addition (Bezeichnung $-a$), und sofern sie bzgl. der Multiplikation existieren schreibe $a^{-1}$.
+\end{bem}
+%
+\begin{bem}
+	Jeder Ring hat ein neutrales Element bezüglich der Addition. Nenne dieses auch \begriff{Nullelement} und bezeichne es mit $0$. \\
+	Das Nullelement ist eindeutig bestimmt, denn: $0_1 = 0_1 + 0_2 = 0_2$.
+\end{bem}
+%
+\begin{defin}
+	Sei $(R,+,*)$ ein Ring mit Nullelement $0$. Existiert ein Element $1 \in R \backslash \menge{0}$ mit $a*1 = 1*a = 1$ für alle $a \in R$, dann wird $1$ \begriff{Einselement} genannt.
+\end{defin}
+%
+\begin{bem}
+	Nicht jeder Ring hat ein Einselement! Falls ein solches aber existiert, dann ist es auch eindeutig bestimmt, denn: $1_1 = 1_1 * 1_2 = 1_2$.
+\end{bem}
+%
+\begin{bsp}
+	\begin{itemize}
+		\item $\integer, \mathbb{Q}, \real, \complex$ sind Ringe mit Nullelement $0$ und Einselement $1$.
+		\item $\rest{n}$ ist ein Ring mit Nullelement $0$ und Einselement $1$.
+		\item $\real^{n \times n}$ ist ein Ring mit Nullelement $0_{n \times n}$ und Einselement $\one_n$.
+		\item Sei $M \neq \emptyset$ und $(\mathcal{P}(M); \triangle, \cap)$ ist dann ein Ring mit Nullelement $\emptyset$ und Einselement $M$.
+	\end{itemize}
+\end{bsp}
+%
+\begin{bem}
+	Sei $(R,+,*)$ ein Ring mit Nullelement $0$ und $a \in R$. Dann gilt $0 * a = 0$ und $a * 0 = 0$.
+\end{bem}
+\begin{proof}
+	$0*a = (0 + 0)*a = (0 * a) + (0 * a) \follows (0*a) + (-0*a) = (0*a) + (0*a) + (-0*a) \follows 0 = 0*a + 0 = 0*a$
+\end{proof}
+%
+\begin{defin}
+	Sei $(R,+,*)$ ein kommutativer Ring mit $a,b \in R \backslash \menge{0}$. Gilt $a*b = 0$, dann werden $a,b$ \begriff{Nullteiler} in $(R,+,*)$ genannt.
+\end{defin}
+%
+\begin{bsp}
+	Der Ring $\rest{6}$ hat die Nullteiler $2$ und $3$, denn $2*3=3*2=0$. \\
+	Die Ringe $\integer, \mathbb{Q}, \real, \complex$ besitzen keine Nullteiler, sind also nullteilerfrei. \\
+	In Matrizenringen gibt es Nullteiler, z.B.
+	\begin{align*}
+		\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} * 
+		\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} =
+		\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
+	\end{align*}
+	In $\rest{p}$ mit $p$ prim gibt es keine Nullteiler, denn: Sei $a \in \rest{p} \backslash \menge{0}$. Angenommen es existiert ein $b \in \rest{p} \backslash \menge{0}$ mit $a*b=0 \enspace (\mod p)$. Dann folgt $(a^{-1}*a)*b = a^{-1} * 0$ und $1*b=b=0$. \Lightning
+\end{bsp}
+%
+\begin{defin}
+	Sei $(R,+,*)$ ein kommutativer Ring mit Einselement, in dem es keine Nullteiler gibt (nullteiilerfrei). Dann wird $(R,+,*)$ ein \begriff{Integritätsring} genannt.
+\end{defin}
+%
+\begin{bsp}
+	$(\integer, +,*)$ ist ein Integritätsring.
+\end{bsp}
+%
+\begin{defin}
+	Sei $(R,+,*)$ ein Ring mit Nullelement $0$. Ist $(R \backslash \menge{0}), +,*)$ eine abelsche Gruppe, dann nennt man $(R,+,*)$ einen \begriff{Körper}.
+\end{defin}
