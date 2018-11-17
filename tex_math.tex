@@ -1,3 +1,8 @@
+%
+% ================================ 
+% | MATH SETTINGS                |
+% ================================
+
 %============= BUCHSTABEN =============
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
@@ -7,27 +12,48 @@
 \newcommand{\equivalent}{\quad \Leftrightarrow \quad}
 
 %============= MENGEN =============
+\newcommand{\menge}[1]{\{ #1 \}}
+\newcommand{\card}[1]{\abs{#1}}
+
 \newcommand{\nat}{\mathbb{N}}				% natürliche Zahlen
 \newcommand{\integer}{\mathbb{Z}}			% ganze Zahlen
+\newcommand{\ratio}{\mathbb{Q}}
 \newcommand{\real}{\mathbb{R}}				% reelle Zahlen
 \newcommand{\complex}{\mathbb{C}}			% komplexe Zahlen
 \newcommand{\korper}{\mathbb{K}}			% Körper IR oder IC
-\newcommand{\ringx}{R^{\times}}				% Einheiten Ring
-\newcommand{\korperx}{K^{\times}}			% Einheiten Körper
-\newcommand{\rest}[1]{\integer / #1 \integer} % Restklassen Z/( )Z
-\newcommand{\ohneNull}{\backslash \menge{0}}% Menge ohne Null \{0}
-\newcommand{\einheit}[1]{{#1}^{\times}}
 
-\newcommand{\menge}[1]{\{ #1 \}}
-\newcommand{\card}[1]{\abs{#1}}
-\newcommand{\st}{\,|\,}
+\newcommand{\einheit}[1]{{#1}^{\times}}
+\newcommand{\ringx}{\einheit{R}}			% Einheiten Ring
+\newcommand{\korperx}{\einheit{K}}			% Einheiten Körper
+
+\newcommand{\rest}[1]{\integer / #1 \integer} % Restklassen Z/( )Z
+% add Polynomring
+% add Endlicher Körper
+
+\newcommand{\ohneNull}{\backslash \menge{0}}% Menge ohne Null \{0}
+
 \DeclareMathOperator{\inn}{int} % Set of inner points
 \DeclareMathOperator{\ext}{ext} % Set of outer points
 \DeclareMathOperator{\cl}{cl} 	% Abschluss
 \DeclareMathOperator{\diam}{diam}
+\newcommand{\rand}{\partial}
 
 %============= FUNKTIONEN =============
-\newcommand{\abb}[3]{#1 \colon #2 \to #3}
+\newcommand{\abb}[3]{#1 \colon #2 \to #3}	  % Abbildungen mit Namen, einzeilig
+\newcommand{\bigabb}[5]{#1 \colon \left\lbrace%	Abbildungen mit Namen, zweizeilig
+	\begin{array}{ccl}%
+		#2 & \to & #3 \\%
+		#4 & \mapsto & #5%
+	\end{array}%
+	\right.}
+%
+\newcommand{\bigabbnoname}[4]{\left\lbrace%		Abbildungen ohne Namen, zweizeilig
+	\begin{array}{ccl}%
+		#1 & \to & #2 \\%
+		#3 & \mapsto & #4%
+	\end{array}%
+	\right.}
+
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\graph}{graph}
 \DeclareMathOperator{\grad}{grad}
@@ -35,6 +61,7 @@
 
 %============= ZAHLENTHEORIE =============
 \newcommand{\teilt}{\mid}
+\newcommand{\teiltnicht}{\nmid}
 \newcommand{\normalteiler}{\trianglelefteq}
 \newcommand{\nichtnormal}{\ntrianglelefteq}
 \DeclareMathOperator{\ggT}{ggT}
@@ -75,13 +102,18 @@
 \DeclareMathOperator{\Eig}{Eig}
 
 %============= GRUPPEN =============
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\Inn}{Inn}
-\DeclareMathOperator{\zentrum}{Z}
-\DeclareMathOperator{\fix}{Fix}
-\DeclareMathOperator{\stab}{Stab}
+\DeclareMathOperator{\ord}{ord}		% Ordnung eines Elements
+\DeclareMathOperator{\Inn}{Inn}		% Abbildung Inn
+\DeclareMathOperator{\zentrum}{Z}	% Zentrum einer Gruppe
+\DeclareMathOperator{\fix}{Fix}		% Fixpunkte einer Wirkung
+\DeclareMathOperator{\stab}{Stab}	% Stabilisator
+\DeclareMathOperator{\Syl}{Syl}		% Menge der p-Sylowgruppen
 
 %============= RINGE =============
+
+%============= KÖRPER =============
+\DeclareMathOperator{\GF}{GF}
+
 
 %============= METRISCHE RÄUME =============
 \newcommand{\abs}[1]{\left| #1 \right|}
@@ -100,21 +132,10 @@
 %============= INTEGRATION =============
 \DeclareMathOperator{\tangentialraum}{T}
 \DeclareMathOperator{\normalenraum}{N}
+
 \DeclareMathOperator{\divergenz}{div}
 \renewcommand{\div}{\divergenz}
 \DeclareMathOperator{\rot}{rot}
-\newcommand{\rand}{\partial}
 
-\newcommand{\bigabb}[5]{#1 \colon \left\lbrace%
-\begin{array}{ccl}%
-	#2 & \to & #3 \\%
-	#4 & \mapsto & #5%
-\end{array}%
-\right.}
-%
-\newcommand{\bigabbnoname}[4]{\left\lbrace%
-\begin{array}{ccl}%
-	#1 & \to & #2 \\%
-	#3 & \mapsto & #4%
-\end{array}%
-\right.}
+
+

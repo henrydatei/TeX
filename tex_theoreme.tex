@@ -1,17 +1,37 @@
-\newcommand{\begriff}[1]{\textit{#1}}
+%
+% ================================ 
+% | THEOREME & UMGEBUNGEN        |
+% ================================
 
-% |--------------------------|
-% | Theoreme                 |
-% |--------------------------|
+% >> Counter für Umgebungen
+\newcounter{themcount}
+\newcounter{defcount}
+\newcounter{taskcount}
+\newcounter{blattcount}
+%\renewcommand{\thethemcount}{\relax}
 
-\newcommand{\boxskip}{7pt}        % Abstand in Boxen zwischen Rand und Text
-\newcommand{\skiparound}{10pt}    % Abstand vor und nach Theoremen
+% >> Überschriften
+\newcommand{\aufgabe}[1]{{\Large \textsf{\textbf{Aufgabe #1}}}}
+\newcommand{\teilaufgabe}[1]{\textsf{\textit{{\large Teilaufgabe (#1)}}}}
+
+% >> Farben
+\definecolor{lightgrey}{gray}{0.89}
+\definecolor{darkgrey}{gray}{0.6}
+
+\definecolor{blue}{rgb}{50,85,150}
+\definecolor{lightred}{rgb}{1,0.6,0.6}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+
+% >> Theoreme
+
+\newcommand{\boxskip}{7pt}        		% Abstand in Boxen zwischen Rand und Text
+\newcommand{\skiparound}{10pt}   		% Abstand vor und nach Theoremen
 \newcommand{\thmstyle}{changebreak}     % Sytle für Theorem-Umgebungen
 
 \theoremstyle{\thmstyle}
-\theorembodyfont{}                %setzt bodyfont auf nicht kursiv
+\theorembodyfont{}                % setzt bodyfont auf nicht kursiv
 
-\theorempreskip{\skiparound}      %Abstände
+\theorempreskip{\skiparound}      % Abstände
 \theorempostskip{\skiparound}
 
 
@@ -101,6 +121,41 @@
 \theorembodyfont{\normalfont}
 \newtheorem{bsppure}{Beispiel}
 
+%--------------------------------
+\theoremstyle{break}
+
+\theoremheaderfont{\sffamily\bfseries\large}
+%
+%--------------------------------
+%
+%----------Übung-----------------
+\newmdtheoremenv[%
+%backgroundcolor=lightgrey,%
+%linecolor=darkgrey,%
+%innertopmargin=\boxskip,%
+%innerbottommargin=\boxskip,%
+%topline=true,%
+%rightline=true,%
+%leftline=true,%
+%bottomline=true,%
+%innertopmargin=3pt,%
+%innerbottommargin=3pt,%
+%leftmargin=-10pt,%
+%rightmargin=-10pt,%
+%frametitlefont=\sffamily\bfseries\color{black},%
+%skipabove=5pt,%
+%skipbelow=5pt,%
+skipabove=\skiparound,%
+skipbelow=\skiparound,%
+]{uebung}[taskcount]{Übung}
+%
+%-----------Lösung-----------------
+\newenvironment{loesung}{%
+	\vspace{-2mm}
+	\textit{Lösung:} \\%
+}{}
+
+
 
 %---------Übungsblatt--------------
 
@@ -121,8 +176,7 @@
 %	enddef
 %}
 
-%\newcommand{\aufgabe}[1]{{\Large \textsf{\textbf{Aufgabe #1}}}}
-%\newcommand{\teilaufgabe}[1]{\textsf{\textit{{\large Teilaufgabe (#1)}}}}
+%
 %
 %\newcommand{\headeraufgabenblatt}{%
 %	\stepcounter{blattcount}%

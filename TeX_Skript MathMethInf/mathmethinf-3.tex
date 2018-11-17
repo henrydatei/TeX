@@ -1,0 +1,89 @@
+\section{Endliche Körper}
+
+\begin{defin}
+	Ein endlicher Körper mit $p^k$ Elementen ($p$ prim, $k \in \nat \backslash \menge{0,1}$), in Zeichen $\GF(p^k)$ ist $(\GF(p^k)[x] / f(x) , \oplus, \otimes)$ mit $f(x) \in \GF(p)[x], \grad(f) = k$ und $f$ ist irreduzibel.
+\end{defin}
+
+\begin{defin}
+	Sei K ein Körper, $f(x) \in K[x]$. Dann heißt $f(x)$ irreduzibel über $K$, wenn es keine Polynome $a(x), b(x) \in K[x]$ gibt, sodass $f(x)=a(x) * b(x)$ und $0 < \grad(a(x)) \leq \grad(b(x)) < \grad(f(x))$ gilt.
+\end{defin}
+
+\begin{bsp}
+	\begin{itemize}
+		\item Sei $K = \GF(2)$, dann ist $x^4+1 = (x-1)^4$ nicht irreduzibel.
+		\item Sei $K = \GF(2)$, dann ist $x^3 + x + 1$ irreduzibel.
+		\item Sei $K = \GF(2)$, dann sind $x^4+x^3+1$, $x^4+x+1$, $x^4+x^3+x^2+x+1$ irreduzibel.
+	\end{itemize}
+\end{bsp}
+
+\begin{bem}
+	Aber für $K = \GF(3)$ ist $2x+1 = 2x + 1$ ist irreduzibel, d.h. konstante Faktore können immer ausgeklammert werden ohne die Irreduzibiliät zu verändern.
+\end{bem}
+
+\begin{bsp}
+	Wir betrachten einen endlichen Körper mit $2^4$ Elementen. Dann ist $\GF(2) = \rest{2} = \menge{0,1}$. 
+	Menge
+	\begin{align*}
+	\GF(2)[x] / (x^4+x^3+1) 
+	&= \menge{a_3x^3 + a_2x^2 + a_1x + a_0 : a_0, a_1, a_2, a_3 \in \GF(2)} \\
+	&= \menge{ \underbrace{0,1}_{\text{Grad 0}}, \underbrace{x,x+1}_{\text{Grad 1}}, \underbrace{x^2, x^2 + 1, x^2 + x, x^2+x+1}_{\text{Grad 2}}, \underbrace{x^3, \dots, x^3+x^2+x+1}_{\text{8 Polynome vom Grad 3}}}
+	\end{align*}
+\end{bsp}
+
+\begin{bem}
+	$\GF(2)[x] / (x^4+x^3+1) = \GF(2)[x] / (x^4+x+1) = \GF(2) [x] / (f(x))$ mit $\grad f(x) = 4$ über $\GF(2)$.
+\end{bem}
+
+\begin{bem}
+	$a(x)^{-1} = (x^3+x+1)1{-1} = x^3+x$ in $\GF(2)[x]$. \\
+	Berechnung von $a(x)^{-1}$ mit erweitertem euklidischen Algorithmus:
+	\begin{align*}
+		1 \isomorph \ggT(a(x), \underbrace{(x^4+x^3+1)}_{\text{irreduzibel}}) = \alpha(x) \odot a(x) + \beta(x) \odot (x^4+x^3+1)
+	\end{align*}
+	$\mod (x^4 + x^3 + 1)$:
+	\begin{align*}
+		&1 \equiv \alpha(x) \odot  a(x) \mod (x^4+x^3+1) \\
+		\follows &a(x)^{-1} = \alpha(x) \mod (x^3+x^3+1)
+	\end{align*}
+\end{bem}
+
+\begin{defin}
+	Seo $K = \GF(p)$ ein Körper, $f(x) \in K[x]$ irreduzibel. $f(x)$ heißt \begriff{primitiv}, wenn gilt
+	\begin{align*}
+		\min \menge{l \in \nat\ohneNull : x^l \equiv 1 (\mod f(x))} = p^k -1
+	\end{align*}
+\end{defin}
+
+\newpage
+\begin{bsp}
+	Sei $K = \GF(2)$ und $f(x) = x^3 + x + 1$.
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|l|}
+			\hline 
+			$l$ & $x^l \mod (x^3 + x + 1)$ \\ 
+			\hline 
+			$0$ & $1$ \\ 
+			\hline 
+			$0$ & $x$ \\ 
+			\hline 
+			$2$ & $x^2$  \\ 
+			\hline 
+			$3$ & $x^3 = x+1$  \\ 
+			\hline 
+			$4$ & $x^4 = x(x+1) = x^2 + x$  \\ 
+			\hline 
+			$5$ & $x^5 = x(x^2+x) = x^3 + x^2 = x^2 + x + 1$ \\
+			\hline
+			$6$ & $x^6 = x^2 +1$ \\
+			\hline
+			$7$ & $x^7 = 1$ \\
+			\hline
+		\end{tabular} 
+	\end{table}
+	Also ist $\min \menge{\dots} = 7 = 2^3 - 1$ und damit $x^3+x+1$ primitiv über $\GF(2)$
+\end{bsp}
+
+\begin{bem}
+	Ist $f(x) \in \GF(p)[x]$ mit $\grad(f(x)) = k$ ein primitives Polynom, dann kann man alle Elemente von $\GF(p)[x] / f(x) \ohneNull$ in der Form $x^l \mod f(x)$ notieren, wobei $k \in \menge{0,1,\dots, p^k-2}$. Man stellt fest, dass sowohl $\GF(p)[x] / f(x) \ohneNull$ als auch $x^l \mod f(x)$ genau $p^k-1$ Elemente besitzen ($\GF(p)[x]$ hat $p^k$ Elemente).
+\end{bem}

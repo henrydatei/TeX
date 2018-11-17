@@ -1,6 +1,4 @@
 \documentclass[a4paper, 11pt, chapterprefix, ngerman]{scrreprt}
-
-
 \KOMAoptions{%
 	parskip=half,%
 	fontsize=11pt}
@@ -9,8 +7,7 @@
 \input{../tex_packages}
 \input{../tex_math}
 \input{../tex_theoreme}
-\input{mathmethinf_localsettings}
-
+\input{geo_localsettings}
 
 \begin{document}
 
@@ -19,14 +16,18 @@
 \setlength\abovedisplayskip{3pt}
 \setlength\belowdisplayskip{3pt}
 
-% Zyklische Gruppen
-\include{mathmethinf-1}
+\title{Geometrie}
+\author{Eric Kunze}
+\date{\today}
+\maketitle[0]
 
-% Ringe
-\include{mathmethinf-2}
+\chapter{Endliche Gruppen}
 
-% Endliche Körper
-\include{mathmethinf-3}
+\include{geo_1_erinnerung-beispiele}
+\include{geo_2_ordnung-index}
+\include{geo_3_normalteiler-quotientengruppe}
+\include{geo_4_abelsche-gruppen}
+\include{geo_5_produkte}
 
 \end{document}
 
