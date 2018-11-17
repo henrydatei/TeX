@@ -10,7 +10,8 @@
 
 % >> Sichtbarkeit von Countern
 \numberwithin{themcount}{section}
-\counterwithout{section}{chapter}
+\counterwithout{section}{chapter}	% Befehl funktioniert nur mit Klasse scrreprt (Standard in Vorlage aber scrartcl)
+%\numberwithin{page}{blattcount}	% Aufgabenblattnummer erscheint vor der Seitenzahl (environment "hausaufgabe" wird benötigt - setzen des page-counters)
 
 % >> Hervorhebungen
 \newcommand{\begriff}[1]{\textit{#1}}
