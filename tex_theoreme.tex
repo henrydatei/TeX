@@ -10,6 +10,11 @@
 \newcounter{blattcount}
 %\renewcommand{\thethemcount}{\relax}
 
+% >> Eigenschaften für Übungsblätter
+\newcommand{\uebungsgruppe}{Tag x. DS, (un)gerade Woche}
+\newcommand{\name}{Eric Kunze}
+\newcommand{\matrikelnr}{4679202}
+
 % >> Überschriften
 \newcommand{\aufgabe}[1]{{\Large \textsf{\textbf{Aufgabe #1}}}}
 \newcommand{\teilaufgabe}[1]{\textsf{\textit{{\large Teilaufgabe (#1)}}}}
@@ -161,20 +166,25 @@ skipbelow=\skiparound,%
 
 
 %---------Hausaufgaben--------------
-%\newenvironment{hausaufgaben}[args]{%
-%	\stepcounter{blattcount}%
-%	\fcolorbox{black}{lightgrey}{%
-%		\begin{minipage}{0.5\textwidth}
-%			\textsf{{\huge \textbf{Hausaufgaben}}} \\
-%			\textsf{Übungsblatt \theblattcount}
-%		\end{minipage}
-%		\begin{minipage}{0.5\textwidth}
-%			\flushright \textbf{Eric Kunze} (Matr.-Nr. 4679202)\\
-%			Ü-Gruppe: gerade Woche (M. Schönherr)
-%		\end{minipage}%
-%	}{%
-%	enddef
-%}
+\newenvironment{hausaufgabe}{%
+	\stepcounter{blattcount}%
+	\setcounter{page}{1}
+	\fcolorbox{black}{lightgrey}{%
+		\begin{minipage}{0.5\textwidth}
+			\textsf{{\huge \textbf{Hausaufgaben}}} \\
+			\textsf{Übungsblatt \theblattcount}
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			\flushright \textbf{\name} (Matr.-Nr. \matrikelnr)\\
+			Ü-Gruppe: \uebungsgruppe
+		\end{minipage}}%
+	\setcounter{figure}{0}%
+	\setcounter{equation}{0}%
+	\setcounter{table}{0}%
+	\vspace{5mm}%
+	}{%
+	\newpage%
+}
 
 %
 %
