@@ -1,0 +1,124 @@
+\documentclass[a4paper, 11pt, ngerman]{scrartcl}
+\KOMAoptions{%
+	parskip=half,%
+	fontsize=11pt}
+
+% === INPUT ===================================================
+\input{../tex_packages}
+\input{../tex_math}
+\input{../tex_theoreme}
+\input{fs_probeklausur_localsettings}
+
+\begin{document}
+
+%\setlength\abovedisplayshortskip{3pt}
+%\setlength\belowdisplayshortskip{3pt}
+%\setlength\abovedisplayskip{3pt}
+%\setlength\belowdisplayskip{3pt}
+
+\fcolorbox{black}{lightgrey}{%
+	\begin{minipage}{0.5\textwidth}
+		\textsf{{\huge \textbf{Formale Systeme}}} \\
+		\textsf{Aussagenlogik - Probeklausur im November 2018}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\flushright \textbf{Prof. Dr. Steffen Hölldobler}\\
+	\end{minipage}%
+}
+\vspace{12pt}
+
+\aufgabe{1}
+
+\begin{description}
+\item[Aussagenlogische Formel]
+\begin{itemize}
+	\item Wenn $F$ ein Atom ist, dann ist $F$ eine Formel.
+	\item Wenn $F$ eine Formel ist, dann ist $\not F$ eine Formel.
+	\item Wenn $F$ und $G$ Formeln sind, dann ist auch $F \circ G$ eine Formel, wobei $\circ \in \menge{\land, \lor, \rightarrow}$.
+\end{itemize}
+
+\item[Aussagenlogische Interpretation]
+\begin{itemize}
+	\item Eine Interpretation $I = (W, *^{I})$ besteht aus der Menge der Wahrheitswerte $W$ und 
+	\item einer Abbildung $\abb{*^{I}}{L(R)}{W}$, welche die folgenden Bedingungen erfüllt:
+	\begin{align*}
+	[F]^I = \begin{cases}
+	\not^{\star} [G]^I & \text{wenn $F$ von der Form $\not G$ ist} \\
+	[G_1]^I \circ^{\star} [G_2]^I & \text{wenn $F$ von der Form $(G_1 \circ G_2)$ ist}
+	\end{cases}
+	\end{align*}
+\end{itemize}
+
+\item[Tautologie]
+\begin{itemize}
+	\item $F$ ist allgemeingültig, wenn für alle Interpretationen $I=(W,+^I)$ gilt: $F^I = \top$.
+\end{itemize}
+
+\item[Aussagenlogische Konsequenz]
+\begin{itemize}
+	\item $F$ ist genau dann eine Konsequenz einer Menge von Formeln $\mathcal{G}$, symbolisch $\mathcal{G} \models F$, 
+	\item wenn für jede Interpretation $I=(W,+^I)$ gilt:
+	\item wenn $I$ Modell für $\mathcal{G}$ ist, dann ist $I$ auch Modell für $F$.
+\end{itemize}
+
+\item[Konjunktive Normalform]
+\begin{itemize}
+	\item CNF ist von der Form einer verallgemeinerten Konjunktion $\langle C_1, \dots , C_m \rangle$ mit $m \geq 0$ und 
+	\item jedes $C_j$ mit $1 \leq j \leq m$ ist einer Klausel von der Form $[L_1, \dots , L_n]$, wobei $L_i, i=1, \dots n$ ein Literal ist.
+\end{itemize}
+\end{description}
+
+\vspace{6pt}
+\aufgabe{2}
+
+\begin{enumerate}[label=(\alph*)]
+	\item falsch
+	\item wahr
+	\item falsch
+	\item wahr
+	\item wahr
+	\item falsch
+	\item wahr
+	\item wahr
+\end{enumerate}
+
+\newpage
+
+\aufgabe{3}
+
+\begin{itemize}
+	\item (2 Punkte) Sei $I$ eine Interpretation, die alle aussagenlogische Variablen in $\mathcal{R}$ auf $\top$ abbildet.
+	\item (2 Punkte) Also ist $I$ ein Modell für jede definite Klausel. Sei dazu $[A, l_1, \dots , L_m]$ eine definite Klausel, bei der $A$ ein positives Literal ist.
+	\begin{align*}
+		[A, l_1, \dots , L_m]^I &= [(A \lor [L_1 \lor \cdots \lor L_m])]^I \\
+		&= [A]^I \lor^{\star} [L_1 \lor \cdots \lor L_m]^I \\
+		&= \top \lor^{\star} [L_1 \lor \cdots \lor L_m]^I \\
+		&= \top
+	\end{align*}
+	\item (2 Punkte) Damit ist $I$ ein Modell für eine Konjunktion von definiten Klauseln, d.h. für eine Formel in Klauselform, die nur definite Klauseln enthält.
+\end{itemize}
+
+\vspace{6pt}
+\aufgabe{4}
+
+Die Aussage ist falsch. (0.5 Punkte) \\
+Betrachte dazu die Formel $F = (p \lor p)$. (1.5 Punkte) \\ Dann ist
+\begin{itemize}
+	\item $\card{\mathcal{S}(F)} = \card{\menge{(p \lor p), p}} = 2$
+	\item $\card{\mathcal{P}_F}  = \card{\menge{\Lambda, 1 \Lambda, 2 \Lambda}} = 3$
+\end{itemize}
+
+\vspace{6pt}
+\aufgabe{5}
+
+\begin{itemize}
+\item (1 Punkt) Es gibt ${2^2}^n$ verschiedene Äquivalenzklassen bezüglich $\mathcal{L}(\mathcal{R}, n)$ definiert durch $\equiv$. 
+\item (2 Punkte) Also gibt es maximal $k \leq {2^2}^n$ unterschiedliche Äquivalenzklassen bezüglich $\mathcal{G}_n$ definiert durch $\equiv$.
+\item (2 Punkte) Es gibt ein Modell $I$ für die Formeln $\mathcal{G}_1 , \dots, \mathcal{G}_k \in \mathscr{G}_n$, die die $k$ Äquivalenzklassen repräsentieren, 
+\item (2 Puntke) da $\menge{\mathcal{G}_1 , \dots \mathcal{G}_k}$ eine echte Teilmenge von $F$ ist. \\
+\item (1 Punkt) Diese Interpretation ist also auch ein Modell für $\mathscr{G}_n$, 
+\item (1 Punkt) da mit jedem $\mathcal{G}_i$ auch alle anderen Formeln der gegebenen Äquivalenzklasse auf wahr unter $I$ abgebildet werden.
+\end{itemize}
+
+\end{document}
+
