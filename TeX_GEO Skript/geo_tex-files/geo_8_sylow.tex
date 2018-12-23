@@ -1,0 +1,60 @@
+\section{Die Sylow-Sätze}
+
+Sei $G$ eine endliche Gruppe und $p \in \natural$ prim.
+\begin{defin}
+	Sei $H \leq G$.
+	\begin{enumerate}[label=(\arabic*)]
+		\item $H$ ist eine \begriff{$p$-Sylow-Untergruppe} von $G$ (oder kurz $p$-Sylowgruppe) $\quad :\Leftrightarrow \quad$ $H$ ist $p$-Gruppe und $p \teiltnicht (G:H)$
+		\item $\Syl_p(G) := \menge{H \leq G: H \text{ ist $p$-Sylowgruppe von } G}$
+	\end{enumerate}
+\end{defin}
+
+\begin{bem}
+	Schreibe $\# G = p^k*m$ mit $p \teiltnicht m$. Dann gilt für $H \leq G$:
+	\begin{align*}
+		H \in \Syl_p(G) \equivalent \# H = p^k
+	\end{align*}
+\end{bem}
+
+\begin{bsp}
+	$\Syl_3(S_3) = \menge{A_3} \qquad \Syl_2(S_3) = \menge{\erz{(1\,2)}, \erz{(1\,3)}, \erz{(2\,3)}}$ \\
+	$D_4 \in \Syl_2(S_4)$
+\end{bsp}
+
+\begin{satz}
+	$\Syl_p(G) \neq \emptyset$.
+\end{satz}
+\begin{proof}
+	Induktion nach $n = \# G = p^k * m, \enspace p \teiltnicht m$.
+	Für $n=1$ ist $1 \in \Syl_p(1)$. \\
+	Sei nun $n>1$. Ist $p \teiltnicht n$, so ist $1 \in \Syl_p(G)$. Sei also $k \geq 1$.
+	\begin{itemize}
+		\item 1.Fall: Es ex. ein $H \lneqq G$ mit $p \teiltnicht (G:H)$. Nach Induktionshypothese existiert $S \in \Syl_p(H)$. Da $p \teiltnicht (G:S) = (G:H)(H:S)$ ist $S \in \Syl_p(G)$.
+		\item Fall 2: Es ist $p \teilt (G:H)$ für alle $H \leq G$. Nach Klassengleichung 6.16 ist $0 = n  = \# Z(G) + \sum_{i+1}^{r}{(G:C_i(x_i))} = \# Z(G) \mod p$, wobei $G/Z(G)=\biguplus_{i=1}^{r}{x_i^G}$, also $p \teilt \# Z(G)$. Nach 7.3 existiert $g \in Z(G)$ mit $\ord(g) = p$. \\
+		$\follows N := \erz{g} \normalteiler G$, $\# N = p$, $\# G/N = p^{k-1}*m$ \\
+		Nach Induktionshypothese existiert also $\quer{S} \in \Syl_p(G/N)$, d.h. $\# \quer{S} = p^{k-1}$. Setze $S := \pi_N^{-1}(\quer{S}) \leq G$. Dann ist $\# S = \# \Ker(\pi_N) * \# \quer{S} = p*p^{k-1} = p^k$, d.h. $S \in \Syl_p(G)$.
+	\end{itemize}
+\end{proof}
+
+\begin{kor}
+	Ist $k \in \nat$ mit $p^k \teilt \# G$, so existiert $H \leq G$  mit $\# H = p^k$.
+\end{kor}
+\begin{proof}
+	Anwendung von 8.4 und 7.9
+\end{proof}
+
+\begin{thm}[Sylow-Sätze]
+	Sei $G$ eine endliche Gruppe.
+	\begin{enumerate}[label=(\roman*)]
+		\item Jede $p$-Gruppe $H \leq G$ ist in einer $p$-Sylowgruppe von $G$ enthalten.
+		\item Je zwei $p$-Sylowgruppen von $G$ sind konjugiert.
+		\item Für die Anzahl $s_p := \# \Syl_p(G)$ gilt
+		\begin{align*}
+			s_p = (G:N_G(S)) \equiv 1 \mod p
+		\end{align*}
+		wobei $S \in \Syl_p(G)$ beliebig.
+	\end{enumerate}
+\end{thm}
+\begin{proof}
+	Fixiere $S_0 \in \Syl_p(G)$ (existiert nach 8.4). Definiere $X := \menge{S_0^g : g \in G} \subseteq \Syl_p(G)$.
+\end{proof}

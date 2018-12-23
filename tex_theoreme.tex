@@ -14,6 +14,8 @@
 \newcommand{\uebungsgruppe}{Tag x. DS, (un)gerade Woche}
 \newcommand{\name}{Eric Kunze}
 \newcommand{\matrikelnr}{4679202}
+\newcommand{\modul}{\hfill}
+\newcommand{\uebungsleiter}{\hfill}
 
 % >> Überschriften
 \newcommand{\aufgabe}[1]{{\Large \textsf{\textbf{Aufgabe #1}}}}
@@ -183,6 +185,26 @@ skipbelow=\skiparound,%
 	\setcounter{table}{0}%
 	\vspace{5mm}%
 	}{%
+	\newpage%
+}
+
+\newenvironment{uebungsblatt}{%
+	\stepcounter{blattcount}%
+	\setcounter{page}{1}
+	\fcolorbox{black}{lightgrey}{%
+		\begin{minipage}{0.5\textwidth}
+			\textsf{{\huge \textbf{Übungsblatt \theblattcount}}} \\
+			\textsf{\modul}
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			\flushright \name \\
+			Übungsleiter: \uebungsleiter
+	\end{minipage}}%
+	\setcounter{figure}{0}%
+	\setcounter{equation}{0}%
+	\setcounter{table}{0}%
+	\vspace{5mm}%
+}{%
 	\newpage%
 }
 

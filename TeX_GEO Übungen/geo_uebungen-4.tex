@@ -1,0 +1,93 @@
+\begin{uebungsblatt}
+	%
+	\textbf{Thema:} Sylow-Sätze, einfache Gruppen, auflösbare Gruppen
+	\vspace{0.5cm}
+	%
+	\setcounter{taskcount}{65}
+	% Aufgabe V66
+	\begin{uebung} [Vorbereitung]
+		Sei $\Delta := \menge{(g,g) : g \in G}$. Dann ist $\Delta \leq G \times G$. Ist $G$ abelsch, so ist $\Delta \normalteiler G \times G$ und $(G \times G)/\Delta \isomorph G$. Ist $G$ nicht abelsch, so ist $\Delta \nichtnormal G \times G$
+	\end{uebung}
+	\begin{loesung}
+		Wir präsentieren hier nur die Lösung für den Teil $(G \times G)/\Delta \isomorph G$. Betrachte dazu die Abbildung
+		\begin{align*}
+			\bigabb{f}{G \times G}{G}{(g_1, g_2)}{f(g_1, g_2) = g_1 * g_2^{-1}}
+		\end{align*}
+		Da $G$ abelsch ist, ist $f$ ein Gruppenhomomorphismus:
+		\begin{align*}
+			\forall g_1, g_2, g_3, g_4 \in G : f((g_1, g_2) * (g_3, g_4)) 
+			&= f(g_1 g_3, g_2 g_4) \\
+			&= g_1 g_3 *\left( g_2 g_4 \right)^{-1} \\
+			&= g_1 g_2^{-1} g_3 g_4^{-1} \\
+			&= f(g_1, g_2) * f(g_3, g_4)
+		\end{align*}
+		Es ist klar, dass $f$ surjektiv ist, da alle $g \in G$ dargestellt werden können als $f(g_1, 1) = g$. Außerdem gilt
+		\begin{align*}
+			\Ker(f) &= \menge{(g_1, g_2) \in G \times G : f(g_1, g_2) = 1} \\
+			&= \menge{(g_1, g_2) \in G \times G : g_1 * g_2^{-1} = 1} \\
+			&= \menge{(g_1, g_2) \in G \times G : g_1 = g_2} \\
+			&= \Delta
+		\end{align*}
+		Mit 3.9 aus der Vorlesung schließen wir nun $(G \times G) / \Ker(f) \isomorph \bild(f) \equivalent (G \times G) / \Delta \isomorph G$.
+	\end{loesung}
+
+	\setcounter{taskcount}{67}
+	%
+	% Aufgabe Ü68
+	%
+	\begin{uebung}
+		Bestimmen Sie die Anzahl der $k$-Zykel $\sigma \in S_n$ für $k \in \nat$.
+	\end{uebung}
+	\begin{loesung}
+		Es seien $n \geq 1$ und $k \geq 1$. Ist $k > n$, so gibt es keinen $k$-Zykel in $S_n$. Ist $k \leq n$, so gibt es genau
+		\begin{align*}
+			\frac{n*(n-1)*(n-2) * (n-k+1)}{k}
+		\end{align*}
+		$k$-Zykel in $S_n$, bzw. in anderer Darstellungsweise ist die Anzahl der $k$-Zykel in $S_n$
+		\begin{align*}
+			\frac{n!}{(n-k)! * k}
+		\end{align*}
+		Betrachte zur Veranschaulichung 
+		\begin{align*}
+			(a_1 \, a_2 \cdots a_k) = (a_2 \, a_3 \cdots a_k \, a_1) = (a_3 \, a_4 \cdots a_k \, a_1 \, a_2) = \cdots
+		\end{align*}
+	\end{loesung}
+	%
+	% Aufgabe Ü69
+	%
+	\begin{uebung}
+		Ist $G$ endlich und einfach und $H \leq G$ mit $n = (G:H) \geq 2$, so ist $\# G \teilt n!$.
+	\end{uebung}
+	\begin{loesung}
+		Betrachte die folgende Abbildung
+		\begin{align*}
+			\bigabb{\psi}{H \backslash G \times G}{G}{(Hg_1, g_2)}{(Hg_1)^{g_2} = H g_1 g_2}
+		\end{align*}
+		$\psi$ ist eine Wirkung:
+		\begin{enumerate}[label=(\roman*)]
+			\item $\forall g \in G : \quad (Hg)^1 = Hg*1 = Hg$
+			\item $\forall g_1, g_2, g_3 \in G: \quad \left((Hg_1)^{g_2}\right)^{g_3} = \left( Hg_1 g_2 \right)^{g_3} = H g_1 g_2 g_3 = \left( H g_1 \right)^{g_2 * g_3}$
+		\end{enumerate}
+		Betrachte den Kern der Wirkung 
+		\begin{align*}
+			\bigabb{\phi}{G}{S_{(H \backslash G)}}{g}{\phi(g) : H \backslash G \to H \backslash G, Hl \mapsto (Hl)^g} \text{ (vgl. 6.3)}
+		\end{align*}
+		mit$\Ker(\phi) = \menge{g \in G \mid \forall l \in G : (Hl)^g = Hl}$ \\
+		Da $G$ einfach ist und $\Ker(\phi) \normalteiler G$, gilt $\Ker(\phi) = 1$ oder $\Ker(\phi) = G$. Ist $\Ker(\phi) = 1$, so ist $G \isomorph \bild(G)$ nach 3.9, insbesondere gilt $\# G = \# \bild(\phi)$ und $\card{S_{H \backslash G}} = (G:H)! = n!$. Ist $\Ker(\phi) = G$, so gilt $H = G$:
+		\begin{itemize}
+			\item $H \subseteq G$ ist klar
+			\item $G \subseteq H$. Es reicht zu zeigen, dass $\Ker(\phi) \subseteq H$ gilt. Sei $g \in \Ker(\phi)$, d.h. für alle $l \in G$ ist $Hlg = Hl$. Insbesondere ist für $l=1$ dann $Hg=H$, d.h. also $g \in H$.
+		\end{itemize}
+	Es ist also $G=H$, was jedoch falsch ist, da $(G:H) \geq 2$. Somit ist $\Ker(\phi) = G$ nicht möglich.
+	\end{loesung}
+	%
+	% Aufgabe Ü70
+	%
+	\begin{uebung}
+		Keine Gruppe der Ordnung $312$, $12$ oder $300$ ist einfach.
+	\end{uebung}
+	\begin{loesung}
+		To be continued.
+		%%%%%%%%%%% TO %%%% DO %%%%%%%%%%%
+	\end{loesung}
+\end{uebungsblatt}

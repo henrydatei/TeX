@@ -1,0 +1,51 @@
+\section{Erinnerung und Beispiele}
+
+\begin{erinnerung}
+	Ein \begriff{Ring} ist eine abelsche Gruppe $(R, +)$ zusammen mit einer Verknüpfung $\abb{*}{R \times R}{R}$, die Assoziativität und Distributivität erfüllt. \\
+	Eine Teilmenge $\emptyset \neq S \subseteq R$ ist ein \begriff{Unterring} (oder Teilring) von $R$, wenn $S$ abgeschlossen ist unter Addition, Subtraktion und Multiplikation. \\
+	Eine Abbildung $\abb{\phi}{R}{R'}$ zwischen Ringen $R$ und $R'$ ist ein \begriff{Ringhomomorphismus}, wenn
+	\begin{align*}
+		\phi ( r_1 + r_2 ) &= \phi(r_1) + \phi(r_2) \\
+		\phi ( r_1 * r_2 ) &= \phi(r_1) * \phi(r_2)
+	\end{align*}
+	gilt für alle $r_1, r_2 \in R$. In diesem Fall ist 
+	\begin{align*}
+		\Ker(\phi) = \phi^{-1}(\menge{0})
+	\end{align*}
+	der \begriff{Kern} von $\phi$.
+\end{erinnerung}
+
+\begin{bem}
+	In dieser Vorlesung bedeutet ``Ring'' immer kommutativer Ring mit Einselement, d.h. $(R,*)$ bildet ein kommutatives Monoid mit Einselement $1$. Wir forden dann zusätzlich, dass Unterringe von $R$ das Einselement von $R$ enthalten, und dass Ringhomomorphismen $\abb{\phi}{R}{R'}$ das Einselement von $R$ auf das Einselement von $R'$ abbilden.
+\end{bem}
+
+\begin{bsp}
+	\begin{enumerate}
+		\item Der Ring $\integer$ der ganzen Zahlen.
+		\item Der Restklassenring $\rest{n}$ für $n \in \nat$.
+		\item Die Körper $\ratio, \real, \complex$.
+		\item Der Nullring $R = \menge{0}$, hier ist $1_R = 0_R$.
+	\end{enumerate}
+\end{bsp}
+
+Sei nun $R$ ein Ring, d.h. ein kommutativer Ring mit Einselement.
+
+\begin{satz}
+	Ein Ringhomomorphismus $\abb{\phi}{R}{R'}$ ist ein Isomorphismus (d.h. bijektiv), wenn es einen Ringhomomorphismus $\abb{\phi'}{R'}{R}$ gibt mit $\phi' \circ \phi = \id_R$ und $\phi \circ \phi' = \id_{R'}$.
+\end{satz}
+
+\begin{satz}
+	Ein Ringhomomorphismus $\abb{\phi}{R}{R'}$ ist genau dann injektiv, wenn $\Ker(\phi) = \menge{0}$.
+\end{satz}
+
+\begin{defin}
+	Ein $x \in R$ ist eine \begriff{Einheit}, wenn es $y \in R$ gibt mit $xy = 1$ und die Menge $\ringx$ der Einheiten bildet eine Gruppe unter Mutliplikation. \\
+	Ein $x \in R$ ist ein Nullteiler, wenn es $0 \neq y \in R$ gibt mit $xy = 0$ und $R$ ist nullteilerfrei, wenn es keinen Nullteiler $0 \neq x \in R$ gibt.
+\end{defin}
+
+\begin{bsp}
+	\begin{enumerate}
+		\item $\integer$ ist nullteilerfrei und $ \einheit{\integer}= \mu_2 = \menge{\pm 1}$.
+		\item $\rest{n}$ ist genau dann nullteilerfrei, wenn $n$ prim ist ($n > 1$).
+	\end{enumerate}
+\end{bsp}

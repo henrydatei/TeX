@@ -57,7 +57,7 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\graph}{graph}
 \DeclareMathOperator{\grad}{grad}
-\newcommand{\quer}[1]{\bar{#1}}
+\newcommand{\quer}[1]{\overline{#1}}
 
 %============= ZAHLENTHEORIE =============
 \newcommand{\teilt}{\mid}
@@ -95,6 +95,8 @@
 \DeclareMathOperator{\rang}{rang}
 \DeclareMathOperator{\tr}{tr}
 \newcommand{\transpose}[1]{\left( #1 \right)^{\top}}
+\newcommand{\trans}[1]{#1^{\top}}
+\DeclareMathOperator{\cond}{cond}
 
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\Sym}{Sym}
@@ -108,6 +110,10 @@
 \DeclareMathOperator{\fix}{Fix}		% Fixpunkte einer Wirkung
 \DeclareMathOperator{\stab}{Stab}	% Stabilisator
 \DeclareMathOperator{\Syl}{Syl}		% Menge der p-Sylowgruppen
+\DeclareMathOperator{\N}{N}          % Normalisator
+\DeclareMathOperator{\C}{C}           % Zentralisator
+\DeclareMathOperator{\Z}{Z}           % Zentrum
+\DeclareMathOperator{\typ}{Typ}  % Typ einer Permutation aus S_n
 
 %============= RINGE =============
 
@@ -121,6 +127,7 @@
 
 %============= DIFFERENZIERUNG =============
 \newcommand{\partdiff}[1]{\frac{\partial}{\partial #1 }}
+\newcommand{\ableitung}[1]{\frac{\mathrm{d}}{\mathrm{d} #1 }}
 \newcommand{\diff}[1]{\enspace \mathrm{d}#1}
 \newcommand{\dx}{\diff{x}}
 \newcommand{\dy}{\diff{y}}

@@ -1,0 +1,114 @@
+\section{Direkte und semidirekte Produkte}
+%
+Sei $G$ ein Gruppe und $n \in \nat$.
+%
+\begin{defin}
+	Das direkte Produkt von Gruppen $G_1, \dots , G_n$ ist das kartesische Produkt
+	\begin{align*}
+		G = \prod \limits_{i=1}^{n}{G_i} = G_1 \times \cdots \times G_n
+	\end{align*}
+	mit komponentenweise Multiplikation.
+\end{defin}
+%
+\begin{bem}
+	Wir identifizieren $G_j$ mit der Untergruppe
+	\begin{align*}
+		G_j \times \prod_{i \neq j} = 1 \times \cdots \times G_j \times 1 \times \cdots \times 1
+	\end{align*}
+	von $\prod_{i=1}^{n}{G_i}$. Für $i \neq j, g_i \in G_i$ und $g_j \in G_j$ gilt dann
+	\begin{align} \label{eq: kommutierende_g}
+		g_i \enspace g_j = g_j \enspace g_i
+	\end{align}
+\end{bem}
+%
+\begin{defin}
+	Seien $H_1, \dots , H_n \leq G$. Dann isr $G$ das (interne) direkte Produkt von $H_1, \dots , H_n$, in Zeichen
+	\begin{align*}
+		G = \prod_{i=1}^{n}{H_i} = H_1 \times \cdots \times H_n
+	\end{align*}
+	wenn
+	\begin{align*}
+		\begin{cases}
+			H_1 \times \cdots \times H_n & \to G \\
+			(g_1, \dots , g_n) &\mapsto g_n + \cdots * g_n \\
+		\end{cases}
+	\end{align*}
+	ein Gruppenhomomorphismus ist.
+\end{defin}
+%
+\begin{satz}[!]
+	Seien $U,V \leq G$. Dann sind äquivalent
+	\begin{enumerate}[label=(\arabic*)]
+		\item $G = U \times V$
+		\item $U \normalteiler G , \enspace V \normalteiler G , \enspace U \cap V = 1 , \enspace UV = G$
+	\end{enumerate}
+\end{satz}
+\begin{proof} Wir zeigen beide Richtungen der Äquivalenz. \\
+	(1) $\Rightarrow$ (2): Im (externen) direktem Produkt $U \times V$ gilt:
+		\begin{itemize}
+			\item $UV = G = U \times V$: Für $u \in U, v \in V$ ist $(u,v) = (u,1) * (1,v) \in UG$
+			\item $U \cap V = 1$: \checkmark
+			\item $U \normalteiler G = U \times V$: Für $g=(u,v) \in U \times V$ und $u_0 = (u_0,1) \in U$ ist
+			\begin{align*}
+				u_0^g=g^{-1}*u_0*g = (u^{-1},v^{-1}) * (u_0,1) * (u,v) = (u_0^u, 1) \in U
+			\end{align*}
+			\item $V \normalteiler U \times V$: analog
+		\end{itemize}
+	(2) $\Rightarrow$ (1): Betrachte $\abb{\phi}{U \times V}{G}$ mit $(u,v) \mapsto u*v$.
+		\begin{itemize}
+			\item (\ref{eq: kommutierende_g}) gilt: Für $u \in U$ und $v \in V$ gilt in $G$: \\
+			$u^{-1} v^{-1} u v = \underbrace{(v^{-1})^u}_{\in V} * \underbrace{v}_{\in V} = \underbrace{u^{-1}}_{\in U} * \underbrace{u^v}_{\in U} \in U \cap V = 1 \follows uv = vu$
+			\item $\phi$ ist Homomorphismus: \\
+			$\phi((u_1,u_2) (v_1,v_2)) = \phi(u_1 v_1, u_2 v_2) = u_1 u_2 * v_1 v_2 \overset{\text{(\ref{eq: kommutierende_g})}}{=} (u_1 v_1)(u_2 v_2) = \phi(u_1 , u_2) * \phi(v_1 , v_2)$
+			\item $\phi$ surjektiv: $\bild(\phi) = UV = G$
+			\item $\phi$ injektiv: $1 = \phi(u,v) = uv$ \\
+			$\Rightarrow \enspace u =  v^{-1} \in U \cap V = 1 \enspace \Rightarrow \enspace (u,v) = (1,1) \enspace \Rightarrow \enspace \Ker(\phi) = \menge{(1,1)}$
+		\end{itemize}
+\end{proof}
+%
+\begin{kor}
+	Seien $H_1 , \dots , H_n \leq G$. Dann sind äquivalent
+	\begin{align}
+		G &= H_1 \times \cdots \times H_n \label{eq: kor_5.5-1} \\
+		G &= H_1 * \cdots * H_n \text{ und für alle } i \text{ ist } H_i \normalteiler G \text{ und } H_1 \cdots H_{i-1} \cap h_i = 1 \label{eq: kor_5.5-2}
+	\end{align}
+\end{kor}
+\begin{proof}
+	Wir beweisen die Implikation (\ref{eq: kor_5.5-2}) $\Rightarrow$ (\ref{eq: kor_5.5-1}) durch vollständige Induktion nach n.
+	Für $n=1$ ist die Aussage trivial. Sei also $n > 1$ und setze $U := H-1 \cdots h_{n-1}$ und $V = H_n$. Dann ist $U \normalteiler G$ nach  3.3(c), $V \normalteiler G$, $UV = H_1 \cdots H_n = G$ und $U \cap V = 1$, sodass die Bediungen aus \cref{eq: kor_5.5-2} erfüllen. Somit ist $\abb{\phi}{U \times V}{G}$ ein Isomorphismus nach Satz 5.4. Da $H_i \normalteiler U$ für $i < n$ folgt nach Induktionshypothese, dass 
+	\begin{align*}
+		\bigabb{\phi'}{H_1 \times \cdots \times H_{n-1}}{U}{(h_1, \dots, h_{n-1})}{h_1 \cdots h_{n-1}}
+	\end{align*}
+	ein Isomorphismus ist. Somit ist auch
+	\begin{align*}
+		\bigabb{\phi \circ (\phi'  \times \id_{H_n})}{H_1 \times \cdots \times H_n}{G}{(h_1, \dots, h_n)}{\phi( \phi'(h_1 \cdots h_{n-1}), h_n) = h_1 \cdots h_n}
+	\end{align*}
+	ein Isomorphismus.
+\end{proof}
+%
+\begin{defin}
+	Seien $H,N \leq G$. Dann ist G das \begriff{semidirekte Produkt} von H und N, in Zeichen 
+	\begin{align*}
+		G = H \ltimes N = N \rtimes H \text{,}
+	\end{align*}
+wenn $N \normalteiler G$, $H \cap N = 1$, $HN = G$.
+\end{defin}
+%
+\begin{bem}
+	Ist $G = H \ltimes N$, so ist
+	\begin{align*}
+		\bigabb{\alpha}{H}{\Aut(N)}{h}{int_h \mid_N}
+	\end{align*}
+	Ein Gruppenhomomorphismus. Im Fall $G = H \times N$ ist $\alpha_h = \id_N$ für alle $h \in H$. Für $h_1, h_2 \in H, n_1, n_2 \in N$ ist 
+	\begin{align*}
+		h_1 n_1 * h_2 n_2 = h_1 h_2 h_2^{-1} n_1 h_2 n_2 = h_1 h_2 * \underbrace{n_1^{h_2}}_{\in N \normalteiler G} * n_2 = h_1 h_2 * n_1^{\alpha * h_2} * n_2
+	\end{align*}
+\end{bem}
+%
+\begin{defin}
+	Seien $H,N$ Gruppen und $\alpha \in \Hom(H, \Aut(N))$. Das semidirekte Produkt $H \ltimes_{\alpha} N$ von $H$ und $N$ bezüglich $\alpha$ ist das kartesische Produkt $H \times N$ imt der Multiplikation
+	\begin{align*}
+		(h_1, n_1)(h_2,n_2) = (h_1 * h_2 \, , \, n_1^{\alpha_{h_2}} * n_2)
+	\end{align*}
+	für $h_1, h_2 \in H$ und $n_1, n_2 \in N$
+\end{defin}
