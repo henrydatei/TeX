@@ -11,6 +11,7 @@
 % >> Sichtbarkeit von Countern
 \numberwithin{themcount}{section}
 \counterwithout{section}{chapter}
+\counterwithin*{section}{chapter}
 
 % >> Hervorhebungen
 \newcommand{\begriff}[1]{\textit{#1}}
@@ -20,7 +21,7 @@
 
 % >> Aufzählungszeichen und Nummerierung
 \renewcommand{\labelitemi}{$\vartriangleright$}
-\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\labelenumi}{(\alph{enumi})}
 
 % >> Variantionen des Dreiecks als Aufzählungszeichen
 % $\blacktriangleright$
@@ -39,4 +40,5 @@
 % >> mathemtische Zeichen
 \renewcommand{\follows}{\enspace \Rightarrow \enspace}
 \renewcommand{\equivalent}{\enspace \Leftrightarrow \enspace}
+
 
