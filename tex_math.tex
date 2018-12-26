@@ -39,15 +39,20 @@
 \newcommand{\rand}{\partial}
 
 %============= FUNKTIONEN =============
-\newcommand{\abb}[3]{#1 \colon #2 \to #3}	  % Abbildungen mit Namen, einzeilig
-\newcommand{\bigabb}[5]{#1 \colon \left\lbrace%	Abbildungen mit Namen, zweizeilig
+
+% % Abbildungen mit Namen, einzeilig
+\newcommand{\abb}[3]{#1 \colon #2 \to #3}
+
+% Abbildungen mit Namen, zweizeilig
+\newcommand{\bigabb}[5]{#1 \colon \left\lbrace%	
 	\begin{array}{ccl}%
 		#2 & \to & #3 \\%
 		#4 & \mapsto & #5%
 	\end{array}%
 	\right.}
 %
-\newcommand{\bigabbnoname}[4]{\left\lbrace%		Abbildungen ohne Namen, zweizeilig
+% Abbildungen ohne Namen, zweizeilig
+\newcommand{\bigabbnoname}[4]{\left\lbrace%		
 	\begin{array}{ccl}%
 		#1 & \to & #2 \\%
 		#3 & \mapsto & #4%
@@ -62,9 +67,6 @@
 %============= ZAHLENTHEORIE =============
 \newcommand{\teilt}{\mid}
 \newcommand{\teiltnicht}{\nmid}
-\newcommand{\normalteiler}{\trianglelefteqslant}
-\newcommand{\nichtnormal}{\ntrianglelefteqslant}
-\newcommand{\echtnormal}{\vartriangleleft}
 \DeclareMathOperator{\ggT}{ggT}
 \DeclareMathOperator{\kgV}{kgV}
 
@@ -106,17 +108,25 @@
 
 %============= GRUPPEN =============
 \DeclareMathOperator{\ord}{ord}		% Ordnung eines Elements
+\newcommand{\normalteiler}{\trianglelefteqslant}
+\newcommand{\nichtnormal}{\ntrianglelefteqslant}
+\newcommand{\echtnormal}{\vartriangleleft}
 \DeclareMathOperator{\Inn}{Inn}		% Abbildung Inn
-\DeclareMathOperator{\zentrum}{Z}	% Zentrum einer Gruppe
 \DeclareMathOperator{\fix}{Fix}		% Fixpunkte einer Wirkung
 \DeclareMathOperator{\stab}{Stab}	% Stabilisator
 \DeclareMathOperator{\Syl}{Syl}		% Menge der p-Sylowgruppen
-\DeclareMathOperator{\N}{N}          % Normalisator
-\DeclareMathOperator{\C}{C}           % Zentralisator
-\DeclareMathOperator{\Z}{Z}           % Zentrum
-\DeclareMathOperator{\typ}{Typ}  % Typ einer Permutation aus S_n
+\DeclareMathOperator{\N}{N}         % Normalisator
+\DeclareMathOperator{\C}{C}         % Zentralisator
+\DeclareMathOperator{\Z}{Z}         % Zentrum
+\DeclareMathOperator{\typ}{Typ}     % Typ einer Permutation aus S_n
 
 %============= RINGE =============
+\newcommand{\ideal}{\trianglelefteqslant}
+\newcommand{\nichtidela}{\ntrianglelefteqslant}
+\newcommand{\echtideal}{\vartriangleleft}
+\newcommand{\polyring}[2]{#1 \left[ #2 \right]}
+\newcommand{\polyr}{\polyring{R}{X}}
+\newcommand{\polyk}{\polyring{K}{X}}
 
 %============= KÖRPER =============
 \DeclareMathOperator{\GF}{GF}
