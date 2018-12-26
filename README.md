@@ -11,15 +11,14 @@ In diesem Repository teile ich meine Skripte und Übungen, die im Rahmen der Vor
 Das Skript ist eigentlich nur meine Übung gewesen, um mich einzuarbeiten. Mittlerweile ist es mehr als lückenhaft und deswegen leite ich da lieber an [dieses](https://github.com/henrydatei/TUD_MATH_BA/tree/master/3.%20Semester/GEO) Skript von Henry weiter.
 
 ### GEO Übungen
-Dieser Ordner enthält die in der Übung von *Dr. Legrand* vorgestellten Musterlösungen und wahlweise Anmerkungen meinerseits.
+Dieser Ordner enthält die in der Übung von *Dr. Legrand* vorgestellten Musterlösungen und wahlweise Anmerkungen meinerseits.  
 **Hinweis:** Übungsblatt 2 habe ich leider nicht hören können und muss noch vervollständigt werden.
-It provides an introduction to the basics of abstract algebra.
 
 ## Mathematische Methoden für Informatiker
 Manchmal habe ich mich dazu hinreißen lassen bei den Informatikern vorbeizuschauen und habe dort ein wenig mitgeschrieben. *Achtung: sehr unvollständig und eigentlich nicht nutzbar*
 
 ## Formale Systeme
-Hier findet sich die Lösung der Musterklausur, soweit diese präsentiert wurde.
+Hier findet sich die Lösung der Musterklausur, soweit diese präsentiert wurde.  
 Des Weiteren werde ich später meine Zusammenfassung für diese Vorlesung hier veröffentlichen.
 
 ---
