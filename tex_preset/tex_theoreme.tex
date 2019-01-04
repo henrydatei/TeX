@@ -33,7 +33,7 @@
 
 \newcommand{\boxskip}{7pt}        		% Abstand in Boxen zwischen Rand und Text
 \newcommand{\skiparound}{10pt}   		% Abstand vor und nach Theoremen
-\newcommand{\thmstyle}{changebreak}     % Sytle für Theorem-Umgebungen
+\newcommand{\thmstyle}{break}           % Sytle für Theorem-Umgebungen
 
 \theoremstyle{\thmstyle}
 \theorembodyfont{}                % setzt bodyfont auf nicht kursiv
@@ -125,12 +125,16 @@
 \newtheorem{bem}[themcount]{Bemerkung}
 
 \theoremstyle{nonumberplain}
+\theorembodyfont{\normalfont}
 \newtheorem{bsppure}{Beispiel}
 
 %--------------------------------
 \theoremstyle{break}
-\theoremheaderfont{\bfseries\large}
 
+\theoremheaderfont{\sffamily\bfseries\large}
+%
+%--------------------------------
+%
 %----------Übung-----------------
 \newmdtheoremenv[%
 %backgroundcolor=lightgrey,%
@@ -145,7 +149,7 @@
 %innerbottommargin=3pt,%
 %leftmargin=-10pt,%
 %rightmargin=-10pt,%
-frametitlefont=\bfseries\large,%
+%frametitlefont=\sffamily\bfseries\color{black},%
 %skipabove=5pt,%
 %skipbelow=5pt,%
 skipabove=\skiparound,%
@@ -153,20 +157,11 @@ skipbelow=\skiparound,%
 ]{uebung}[taskcount]{Übung}
 %
 %-----------Lösung-----------------
-\makeatletter
-\newtheoremstyle{loesungsstyle}%
-{\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
-{\item[\theorem@headerfont\hskip \labelsep ##1\ (##3)\theorem@separator]}
-\makeatother
+\newenvironment{loesung}{%
+	\vspace{-2mm}
+	\textit{Lösung:} \\%
+}{}
 
-\theoremstyle{loesungsstyle}
-\theoremheaderfont{\normalfont\normalsize\bfseries}
-\theorembodyfont{\normalfont}
-\theoremseparator{.}
-\theorempreskip{5pt}
-\theorempostskip{5pt}
-\theoremsymbol{$\square$}
-\newtheorem{loesung}{Lösung}
 
 
 %---------Übungsblatt--------------
