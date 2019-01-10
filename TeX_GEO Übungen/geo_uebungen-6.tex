@@ -1,0 +1,109 @@
+\begin{uebungsblatt}
+	\setcounter{taskcount}{105}
+	
+	\begin{uebung}[Vorbereitung]
+		Berechnen Sie $\ggT(n, 2019)$ mit dem euklidischen Algorithmus, wobei $n$ Ihr Geburtsjahr ist.
+	\end{uebung}
+	\begin{loesung}
+		Sei $n=1999$. Dann folgt mit dem euklidischen Algorithmus:
+		\begin{align*}
+			2019 &= 1*1999 + 20 \\
+			1999 &= 99*20  + 19 \\
+			20   &= 1*19   + 1 \\
+			19   &= 19*1   + 0 
+		\end{align*}
+		Damit ist $\ggT(1999,2019) = 1$, was bereits klar ist, da $1999$ prim ist.
+	\end{loesung}
+
+	\begin{uebung}[Vorbereitung]
+		Bestimmen Sie $x,y \in \integer$ mit
+		\begin{align}
+		13x + 17y = \ggT(13,17) \label{eq: 107_gleichung_ggt}
+		\end{align}
+		Bestimmen Sie außerdem $x,y \in \integer$ mit 
+		\begin{align}
+		13x + 17y = 3 \label{eq: 107_gleichung_=3}
+		\end{align}
+	\end{uebung}
+	\begin{loesung}
+		Mit dem euklidischen Algorithmus folgt
+		\begin{align*}
+			17 &= 1*13 + 4 \\
+			13 &= 4* 4 + 1 \\
+			4  &= 4* 1 + 0
+		\end{align*}
+		Durch Rückwärtseinsetzen der Reste ausgehend von der vorletzten Gleichung erhalte wir
+		\begin{align*}
+			1 &= 13 - 3*4 \\
+			&= 13 - 3*(17-13) \\
+			&= 4*13 - 3*17
+		\end{align*}
+		Somit ist $(x,y) = (4,-3)$ eine Lösung von \cref{eq: 107_gleichung_ggt}. Multiplizieren wir die Gleichung mit dem Faktor $3$, so ist $(x,y) = (12,-9)$ eine Lösung von \cref{eq: 107_gleichung_=3}.
+	\end{loesung}
+
+	\begin{uebung}[Vorbereitung]
+		$\polynom{\integer}$ und $\polynomring{K}{X,Y}$ sind keine Hauptidealringe.
+	\end{uebung}
+	\begin{loesung}
+		Um zu zeigen, dass $\polynom{\integer}$ kein Hauptidealring ist, betrachten wir das Ideal $(2,X)$ und zeigen, dass dies wirklich ein Ideal ist. Wir zeigen hier nur die Abgeschlossenheit unter Multiplikation mit Elementen aus $\polynom{\integer}$. Sei dazu $f \in \polynom{\integer}$, dann ist 
+		\begin{align*}
+			f * (a * 2 + b * X) = f*a*2 + f*b*X = \underbrace{(f*a)}_{\in \polynom{\integer}} * 2 + \underbrace{(f*b)}_{\in \polynom{\integer}} * X \in (2,X)
+		\end{align*}
+		Für $\polynomring{K}{X,Y}$ ist beispielsweise $(X,Y)$ ein Ideal und damit $\polynomring{K}{X,Y}$ kein Hauptidealring.
+	\end{loesung}
+
+	\stepcounter{taskcount}
+	
+	\begin{uebung}
+		Definiere $R_0 = R$ und $R_{i+1} := \polynomring{R_i}{X_{i+1}}$. Dann ist $R_n \isomorph \polynomring{R}{X_1, \dots , X_n}$.
+	\end{uebung}
+	\begin{loesung}
+		Wir lösen die Aufgabe durch vollständige Induktion über $n \geq 0$. Für $n=0$ gilt $R_0 = R$. Für $n=1$ gilt $R_1 = \polynomring{R_0}{X_1} = \polynomring{R}{X_1}$. Sei daher nun $n > 1$. Wir setzen voraus, dass es Isomorphismen $\abb{\Phi_n}{R_n}{\polynomring{R}{X_1, \dots, X_n}}$ sowie $\abb{\Psi_n}{\polynomring{R}{X_1, \dots, X_n}}{R_n}$ gibt mit
+		\begin{subequations}
+			\begin{align}
+			\begin{split}
+			\Phi_n \circ \Psi_n &= \id_{\polynomring{R}{X_1, \dots, X_n}} \\
+			\Psi_n \circ \Phi_n &= \id_{R_n}
+			\end{split} \label{eq: 110_komp_psi_phi }\\
+			\begin{split}
+				\Phi_n |_R &= \id_R \\
+				\Psi_n |_R &= \id_R 
+			\end{split} \label{eq: 110_einschraenkung_psi_phi}\\
+			\Psi_n(X_i) &= \Phi_n(X_i) = X_i \text{ für alle } i \in \menge{1, \dots, n} \label{eq: 110_psi_phi_gleich}
+			\end{align}
+		\end{subequations}
+		Betrachte die Abbildung
+		\begin{align}
+			\bigabb{\iota}{R}{R_{n+1}}{x}{x} \label{eq: 110_def_iota}
+		\end{align}
+		Mit Ü89 gibt es dann $\abb{\Psi_{n+1}}{\polynomring{R}{X_1, \dots X_{n+1}}}{R_{n+1}}$ mit $\Psi_{n+1}(X_i) = X_i$ für alle $i \in \menge{1, \dots, n+1}$ und $\Psi_{n+1}(x)=\iota(x) = x$ für alle $x \in R$.
+		
+		Betrachte die Abbildung 
+		\begin{align}
+			\bigabb{\kappa}{R_n}{\polynomring{R}{X_1, \dots, X_{n+1}}}{x}{\Phi_n(x)} \label{eq: 110_def_kappa}
+		\end{align}
+		Mit Ü89 gibt es $\abb{\Phi_{n+1}}{\polynomring{R_n}{X_{i+1}}}{\polynomring{R}{X_1, \dots, X_{n+1}}}$ mit 
+		\begin{subequations}
+			\begin{align}
+				\Phi_{n+1}(X_{n+1}) &= X_{n+1} \text{ und} \label{eq: 110_eig_phi_n+1_poly} \\
+				\Phi_{n+1}(x)       &= \Phi_n(x) \text{ für alle } x \in R_n \label{eq: 110_eig_phi_n+1_x}
+			\end{align}
+		\end{subequations}
+		Da $\Psi_n(x) \stackrel{\labelcref{eq: 110_einschraenkung_psi_phi}}{=} x$ für jedes $x \in R$ und $\Psi_n(X_i) \stackrel{\labelcref{eq: 110_psi_phi_gleich}}{=} X_i$ für jedes $i \in \menge{1, \dots, n}$ gilt auch $\Psi_{n+1} |_{\polynomring{R}{X_1, \dots, X_n}} = \Psi_n$.
+		
+		%%% FORTSETZEN
+	\end{loesung}
+		
+	\begin{uebung}
+		Es sei $R$ nullteilerfrei und $\abb{\iota}{R}{K:= \quot(R)}$. Beweisen Sie die universelle Eigenschaft des Quotientenkörpers: Ist $L$ ein Körper und $\phi \in \Hom(R,L)$ injektiv, so gibt es genau ein $\phi' \in \Hom(K,L)$ mit $\phi' \circ \iota = \phi$.
+	\end{uebung}
+	\begin{loesung}
+		Es seien $L$ ein Körper und $\phi \in \Hom(R, L)$ injektiv. Da $\phi$ injektiv ist, ist $\phi(b) \neq 0$ für alle $b \in R\ohneNull$. Betrachte die Abbildung
+		\begin{align*}
+			\bigabb{\psi}{K}{L}{\frac{a}{b}}{\phi(\frac{a}{b} = \phi(a) * \phi(b)^{-1}}
+		\end{align*}
+		\paragraph{Die Abbildung $\psi$ ist wohldefiniert} 
+		%%% TO DO
+	\end{loesung}
+
+\end{uebungsblatt}
