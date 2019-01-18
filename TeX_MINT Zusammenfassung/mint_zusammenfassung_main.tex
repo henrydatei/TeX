@@ -1,0 +1,102 @@
+\documentclass[a4paper, 11pt, ngerman]{scrartcl}
+\KOMAoptions{%
+	parskip=half,%
+	fontsize=11pt}
+
+% === INPUT ===================================================
+
+\usepackage{mathpazo}
+\usepackage{eulervm}
+\input{../tex_preset/tex_packages}
+\input{../tex_preset/tex_math}
+\input{../tex_preset/tex_theoreme}
+\input{mint_localsettings}
+
+\begin{document}
+
+\setlength\abovedisplayshortskip{3pt}
+\setlength\belowdisplayshortskip{3pt}
+\setlength\abovedisplayskip{3pt}
+\setlength\belowdisplayskip{3pt}
+
+\section{$\sigma$-Algebren und Maße}
+\begin{defin}
+	Eine $\sigma$-Algebra über einer Grundmenge $X\neq \emptyset$ ist eine Familie $\mathcal{A} \subseteq \mathcal{P}(X)$ von Mengen mit
+	\begin{itemize}[noitemsep]
+		\item[($\Sigma_1$)] $X \in \mathcal{A}$
+		\item[($\Sigma_2$)] $A \in \mathcal{A} \follows A^\complement = X \backslash A \in \mathcal{A}$
+		\item[($\Sigma_1$)] $(A_n)_{n \in \nat} \subseteq \mathcal{A} \follows \bigcup_{n \in \nat}{A_n} \in \mathcal{A}$
+	\end{itemize}
+\end{defin}
+\begin{satz}
+	Sei $\mathcal{A}$ eine $\sigma$-Algebra über $X$.
+	\begin{enumerate}
+		\item $\emptyset \in \mathcal{A}$
+		\item $A,B \in \mathcal{A} \follows A \cup B \in \mathcal{A}$ mittels ($\Sigma_3$).
+		\item $(A_n)_{n \in \nat} \subseteq \mathcal{A} \follows \bigcap_{n \in \nat}{A_n} \in \mathcal{A}$ (Schnitt = Vereinigung von Komplementen, de Morgan)
+		\item $A,B \in \mathcal{A} \follows A \cap B \in \mathcal{A}$
+		\item $A,B \in \mathcal{A} \follows A \backslash B \in \mathcal{A}$
+	\end{enumerate}
+\end{satz}
+
+\begin{bsp}
+	Die üblichen Beispiele $\mathcal{P}(X), \menge{\emptyset, X}, \dots$ sind klar.
+	\begin{itemize}
+		\item \textbf{Spur-$\sigma$-Algebra.} $E \subseteq X$ beliebig, $\mathcal{A}$ $\sigma$-Algebra in $X$. $\follows \mathcal{A}_{E} := \menge{E \cap A : A \in \mathcal{A}}$ ist $\sigma$-Algebra.
+		\item \textbf{Urbild-$\sigma$-Algebra.} $\abb{f}{X}{X'}$ eine Abbildung, $X,X'$ Mengen, $\mathcal{A}'$ sei $\sigma$-Algebra in $X'$. Dann ist $\mathcal{A} := \menge{f^{-1}(A') : A' \in \mathcal{A}'}$ eine $\sigma$-Algebra.
+	\end{itemize}
+\end{bsp}
+
+\begin{defin}
+	Die von $\mathcal{O} = \mathcal{O}(\real^d) := \menge{U \subseteq \real^d : U \text{ offen}}$ erzeugte $\sigma$-Algebra in $\real^d$ heißt \begriff{Borel-$\sigma$-Algebra} $\mathcal{B}(\real^d)$.
+\end{defin}
+
+\noindent\rule{4cm}{0.4pt}
+
+\begin{defin}
+	Ein Maß ist eine Abbildung $\abb{\mu}{\mathcal{A}}{[0,\infty]}$ mit
+	\begin{itemize}[noitemsep]
+		\item[($M_0$)] $\mathcal{A}$ ist $\sigma$-Algebra.
+		\item[($M_1$)] $\mu(\emptyset) = 0$.
+		\item[($M_2$)] $(A_n)_{n \in \nat}$ paarweise disjunkt. $\follows \mu\left( \biguplus_{n \in \nat}{A_n} \right) = \sum_{n \in \nat}{\mu(A_n)} \in \mathcal{A}$
+	\end{itemize}
+	Ein Maß $\mu$ heißt \begriff{endlich}, falls $\mu(X) < \infty$ und \begriff{$\sigma$-endlich}, falls
+	\begin{align*}
+	\exists (A_n)_{n \in \nat} \subseteq \mathcal{A}, A_n \uparrow X : \mu(A_n) < \infty \text{ für alle } n \in \nat
+	\end{align*}
+\end{defin}
+
+\begin{thm}[Eindeutigkeitssatz]
+	Sei $(X,\mathcal{A})$ ein beliebiger Messraum, $\mu, \nu$ zwei Maße und $\mathcal{A} = \sigma(\mathcal{G})$. Weiter sei $\mathcal{G}$ $\cap$-stabil und $\exists (G_n)_{n \in \nat} \subseteq \mathcal{G}, G_n \uparrow X$ : $\mu(G_n), \nu(G_n) < \infty$. Dann gilt
+	\begin{align*}
+	\forall G \in \mathcal{G}: \mu(G) = \nu(G) &\follows \forall A \in \sigma(\mathcal{G}) : \mu(A) = \nu(A) \\
+	\forall G \in \mathcal{G} : \mu |_G = \nu |_G &\follows \mu = \nu
+	\end{align*}
+\end{thm}
+\begin{proof}
+	Beweisidee: Wunschkonzert \\
+	Zeige, dass $\mathcal{D}_n := \menge{A \in \mathcal{A} : \mu(G_n \cap A) = \nu(G_n \cap A)}$ für alle $n \in \nat$ ein Dynkin-System ist ($X \in \mathcal{D}$, $D^\complement \in \mathcal{D}$, $\biguplus_{n \in \nat}{D_n} \in \mathcal{D}$). \\
+	Verwende die Eigenschaft $\sigma(\mathcal{G}) = \delta(\mathcal{G})$ für $\cap$-stabile $\mathcal{G}$ um zu zeigen, dass $\mathcal{A} = \mathcal{D}_j$ \\
+	Nutze Maßstetigkeit um $\mu(A \cap G_n) = \nu(A \cap G_n) \leadsto \mu(A) = \nu(A)$.
+\end{proof}
+
+\begin{thm}[Fortsetzungssatz nach Carathéodory]
+	Sei $\mathcal{S}$ ein Halbring über $X$ und $\abb{\mu}{\mathcal{S}}{[0,\infty]}$ ein Prämaß, d.h. $\mu(\emptyset) = 0$ und
+	\begin{align*}
+		\forall (S_i)_{i \in \nat} \subseteq \mathcal{S}, \text{ paarweise disjunkt und } \biguplus_{i \in \nat}{S-i} \in \mathcal{S} : \quad \mu\left(\biguplus_{i \in \nat}{S_i}\right) = \sum_{i \in \nat}{\mu(S_i)}
+	\end{align*}
+	Dann existiert eine Fortsetzung von $\mu$ zu einem Maß auf $\sigma(\mathcal{S})$. \\
+	Wenn $(G_i)_{i \in \nat} \subseteq \mathcal{S}, G_i \uparrow X, \mu(G_i) < \infty$ gilt, dann ist die Fortsetzung eindeutig.
+\end{thm}
+
+\begin{satz}
+	$\lambda^1$ ist Prämaß auf $\mathcal{I}$.
+\end{satz}
+\begin{proof}
+	Beweisidee: \\
+	($M_1$) ist wegen $\emptyset = [a,a)$ klar. \\
+	
+\end{proof}
+
+\end{document}
+
